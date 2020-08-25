@@ -1,0 +1,63 @@
+//== Gray shade color scheme
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #222629;
+$black:    #000;
+
+//== Base Colors
+$blue:      #196eed;
+$indigo:    #753fdc;
+$purple:    #ad20d4;
+$pink:      #e60087;
+$red:       #f11717;
+$orange:    #ff9900;
+$yellow:    #ffcf00;
+$green:     #00c746;
+$cyan:      #26bebf;
+$teal:      #20c997;
+
+// Small devices (landscape phones, 576px and up)
+$sm-width: 576px;
+// Medium devices (tablets, 768px and up)
+$md-width: 768px;
+// Large devices (desktops, 992px and up)
+$lg-width: 992px;
+// Extra large devices (large desktops, 1200px and up)
+$xl-width: 1200px;
+
+$radius-md: 1rem;
+$radius-sm: .5rem;
+$sidebar-width: 16.5rem !default;
+$wrapper-padding-x: 2rem !default;
+$player-from-left: $sidebar-width + $wrapper-padding-x;
+$player-height: 4.5rem;
+$zIndex-player: 1004;
+$transition-medium: .4s all ease-in !default;
+$transition-fast: .2s all ease-in !default;
+
+// $player-cover-image-width: $player-height;
+$player-shadow: 0 1px 12px 2px rgba($black, .15);
+$player-progress-bar-height: .125rem;
+
+$audio-control-padding-x: 1.5rem;
+
+$volume-height: .125rem;
+
+$highlighted-theme-color: rgb(173, 32, 212);
+
+$slider-base-color: $highlighted-theme-color;
+$slider-background-color: rgba(173, 32, 212, 0.35);
+$slider-thumb-width: 15px;
+$slider-thumb-height: 15px;
+$slider-transition-duration: 0.4s;
+
+$top-banner-height: 30rem;
+$main-page-top-margin: -10rem;
+$main-page-x-margin: 2rem;

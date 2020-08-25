@@ -1,0 +1,55 @@
+<div class="container-fluid vh-100 d-flex align-items-center">
+  <div class="row">
+    <div class="col-sm-8 col-md-5 mx-auto">
+      <div>
+        <div class="myform form ">
+          <div class="mb-5">
+            <img src="../../../../assets/images/logo.png" class="img-fluid logo">
+          </div>
+          <div class="mb-5 text-center">
+            <h1>mosmuse</h1>
+          </div>
+          <form name="registration" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input type="text" name="firstname" class="form-control" id="firstname"
+                placeholder="Enter Firstname" formControlName="firstname" [ngClass]="{'is-invalid': getControlIsInvalid('firstname')}">
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input type="text" name="lastname" class="form-control" id="lastname"
+                placeholder="Enter Lastname" formControlName="lastname" [ngClass]="{'is-invalid': getControlIsInvalid('lastname')}">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" name="email" class="form-control" id="email"
+                placeholder="Enter email" formControlName="email" [ngClass]="{'is-invalid': getControlIsInvalid('email')}">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="form-control"
+                placeholder="Enter Password" formControlName="password" [ngClass]="{'is-invalid': getControlIsInvalid('password')}">
+            </div>
+            <div class="col-md-12 text-center mb-3">
+              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" [disabled]="signUpForm.invalid">
+                <div *ngIf="!loading">Get Started For Free</div>
+                <div class="lds-ellipsis" *ngIf="loading"><div></div><div></div><div></div><div></div></div>
+              </button>
+            </div>
+            <div class="text-center text-danger">
+              <p *ngIf="error">{{error}}</p>
+            </div>
+            <div class="col-md-12 ">
+              <div class="form-group">
+                <p class="text-center">
+                  <a href="#" id="signin" routerLink="/auth/login">
+                    Already have an account?
+                  </a>
+                </p>
+              </div>
+            </div>
+        </form>
+      </div>      
+    </div>
+  </div>
+</div>

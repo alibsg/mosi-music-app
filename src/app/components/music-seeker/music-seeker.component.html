@@ -1,0 +1,7 @@
+<div id="progress-container" [ngClass]="{highlighted : highLighted === true}">
+  <input (input)="onInputChange($event)" (change)="onSeekChange($event)" [value]="seekerValue" type="range"
+    class="amplitude-song-slider" min="0" max="100">
+  <progress class="audio-progress audio-progress--played amplitude-song-played-progress"
+    [value]="seekerValue/100"></progress>
+  <progress class="audio-progress audio-progress--buffered amplitude-buffered-progress" [value]="bufferValue/100"></progress>
+</div>

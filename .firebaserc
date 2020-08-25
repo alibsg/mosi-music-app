@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mosmuse-7b5ac": {
+      "hosting": {
+        "mosi-music-app": [
+          "mosmuse-7b5ac"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<div appPlayerHover (hover)="onHover($event)" id="audioPlayer">
+  <app-music-seeker [seekerValue]="seekerValue" (seekerChange)="onSeek($event)" [highLighted]="highLighted">
+  </app-music-seeker>
+  <!-- song info -->
+  <div class="song-info d-flex flex-row overflow-hidden">
+    <div class="image-container mr-2">
+      <!-- <img src="../../../assets/images/1.jpg" alt="Song Image" class="song-image"> -->
+      <img [src]="coverUrl" alt="Song Image" class="song-image">
+    </div>
+    <div class="d-flex flex-column justify-content-around">
+      <span class="song-name text-truncate text-light">{{title}}</span>
+      <span class="song-artist text-muted">{{artist}}</span>
+    </div>
+  </div>
+  <!-- palyer controls -->
+  <div class="player-control d-flex flex-row justify-content-between align-items-center">
+    <div class="player-btn-small-container">
+      <a class="player-btn-small"><i class="fa fa-refresh "></i></a>
+    </div>
+    <div class="player-btn-small-container">
+      <a class="player-btn-small"><i class="fa fa-step-backward"></i></a>
+    </div>
+    <div class="player-btn-medium-container d-flex justify-content-center align-items-center">
+      <a class="player-btn-medium" (click)="onPlayPause()">
+        <i class="fa fa-play fa-2x" *ngIf="!playing"></i>
+        <i class="fa fa-pause fa-2x" *ngIf="playing"></i>
+      </a>
+    </div>
+    <div class="player-btn-small-container">
+      <a class="player-btn-small"><i class="fa fa-step-forward"></i></a>
+    </div>
+    <div class="player-btn-small-container">
+      <a class="player-btn-small"><i class="fa fa-random"></i></a>
+    </div>
+  </div>
+  <!-- other controls -->
+  <div class="other-control d-none d-lg-flex flex-row justify-content-around align-items-center ml-auto">
+    <span class="time-value mr-4">
+      <span class="current-minutes">{{currentMinutes | number: '2.0-0'}}</span>:
+      <span class="current-seconds">{{currentSeconds | number: '2.0-0'}}</span> / 
+      <span class="duration-minutes">{{durationMinutes | number: '2.0-0'}}</span>:
+      <span class="duration-seconds">{{durationSeconds | number: '2.0-0'}}</span>
+    </span>
+    <div appDropdown class="audio-volume dropup">
+      <a class="volume-btn">
+        <i class="fa fa-volume-off fa-2x" *ngIf="volumeLevel === 0"></i>
+        <i class="fa fa-volume-down fa-2x" *ngIf="volumeLevel > 0 && volumeLevel < 80"></i>
+        <i class="fa fa-volume-up fa-2x" *ngIf="volumeLevel >= 80"></i>
+      </a>
+      <div class="volume-control dropdown-menu dropdown-menu-right px-2">
+        <input type="range" min="0" max="100" [(ngModel)]="volumeLevel">
+      </div>
+    </div>
+  </div>
+</div>

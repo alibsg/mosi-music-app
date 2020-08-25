@@ -1,0 +1,85 @@
+@import "../../../assets//styles/mixins";
+
+$header-left-margin: $sidebar-width + 2rem;
+
+.header-container {
+  position: fixed;
+  border-radius: $radius-sm;
+  background-color: rgba($black, .35);
+  height: 3rem;
+  top: 1rem;
+  left: $header-left-margin;
+  right: 2rem;
+  transition: all .4s;
+
+  .input-group-text {
+    color: $gray-600;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .form-control {
+    background-color: rgba($black, .5);
+    border: none;
+    color: white;
+    &::placeholder {
+      color: $gray-600;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &.shrink {
+    position: fixed;
+    border-radius: 0;
+    background-color: $highlighted-theme-color;
+    height: 3rem;
+    top: 0;
+    left: $sidebar-width;
+    right: 0rem;
+  
+    .input-group-text {
+      color: white;
+    }
+    .form-control {
+      background: none;
+      color: white;
+      &::placeholder {
+        color: $gray-300;
+      }
+    }
+  }
+}
+
+.user-menu {
+  background-color: rgba($black, .35);
+  a {
+    color: $gray-500;
+  }
+  .dropdown-item {
+    transition: all .8s;
+    &:hover {
+      background-color: rgba($black, .5);
+    }
+  }
+  &.show {
+    animation-name: moveup;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.24, 0.04, 0.39, 1.21)
+  }
+}
+
+@keyframes moveup{
+  0%{
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+

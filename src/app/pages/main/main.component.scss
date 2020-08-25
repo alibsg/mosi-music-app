@@ -1,0 +1,75 @@
+@import "../../../assets/styles/mixins.scss";
+
+$start-gradient-color: rgba($highlighted-theme-color, .5);
+$end-gradient-color: adjust-color($color: $gray-800, $alpha: .5);
+
+
+.banner {
+  background: linear-gradient(to bottom, $start-gradient-color, $end-gradient-color), url(../../../assets/images/neck-wide.jpg) center center no-repeat;
+  background-size: cover;
+  height: $top-banner-height;
+}
+
+.sidebar {
+  background: #222629;
+  padding: 0px;
+  min-height: 100%;
+  max-width: $sidebar-width;
+  min-width: $sidebar-width;
+}
+
+.side-bar-content {
+  position: fixed;
+}
+.logo {
+  max-height: 130px;
+}
+.logo > img {
+  width: 5rem;
+  height: 6rem;
+  padding: 3px;
+  border-radius: 10%;
+}
+.brand {
+  font-family: "Kaushan Script", cursive;
+}
+.list {
+  color: #ced4da;
+  list-style: none;
+  padding-left: 0px;
+}
+.list::first-line {
+  color: #dee2e6;
+  letter-spacing: 0.3rem;
+}
+.list > li,
+h5,
+h6 {
+  padding: 5px 0px 5px 40px;
+}
+
+.list > li {
+  cursor: pointer;
+  transition: all .3s;
+}
+.list > li:hover:not(.active) {
+  color: white;
+  font-weight: bold;
+}
+
+.list .active {
+  background-color: rgb(141, 26, 173, 0.2);
+  border-left: 5px solid rgb(141, 26, 173);
+  color: rgb(141, 26, 173);
+  font-weight: bolder;
+  padding-left: 35px;
+}
+.main-content {
+  background-color: $gray-800;
+  text-align: center;
+}
+
+.main-page-container {
+  margin: $main-page-top-margin $main-page-x-margin 0 $main-page-x-margin;
+}
+

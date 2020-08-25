@@ -1,0 +1,21 @@
+<div class="header-container d-flex align-items-center" [ngClass]="{shrink: shrink === true}">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <input type="text" class="form-control align-self-center" placeholder="Search..." aria-label="Username"
+      aria-describedby="basic-addon1">
+    <div appDropdown class="align-self-center mx-3 d-flex flex-row input-group-text">
+      <div><i class="fa fa-user-circle fa-2x align-self-center"></i></div>
+      <div class="align-self-center d-none d-sm-flex">
+        <h5 class="mb-0 mx-2">{{firstname}}</h5>
+      </div>
+      <div class="dropdown-menu dropdown-menu-right user-menu">
+        <a class="dropdown-item"><i class="fa fa-gear mr-2"></i>Setting</a>
+        <a class="dropdown-item"><i class="fa fa-info-circle mr-2"></i>Profile</a>
+        <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out mr-2"></i>Logout</a>
+      </div>
+    </div>
+  </div>
+
+</div>
