@@ -5,4 +5,7 @@ export class Track {
   trackNumber: number;
   lenght: number;
   url: string;
+  date: Date;
+  user: string;
 }
+

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import * as jsmediatags from 'jsmediatags';
+import { MusicFileService } from 'src/app/services/music-file.service';
 
 @Component({
   selector: 'app-music-player',
@@ -10,6 +10,7 @@ import * as jsmediatags from 'jsmediatags';
 })
 export class MusicPlayerComponent implements OnInit, OnDestroy {
   playTickSubscription: Subscription;
+  songInfoSubscription: Subscription;
   seekerValue = 0;
   volumeLevel = 50;
   highLighted = false;
@@ -18,14 +19,13 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
   durationSeconds = 0;
   currentMinutes = 0;
   currentSeconds = 0;
-  private readonly defaultCoverUrl = '../../assets/images/no-cover.png';
-  coverUrl = this.defaultCoverUrl;
+  coverUrl = '';
   artist = '';
   title = '';
 
   audio = new Audio();
 
-  constructor() { }
+  constructor(private musicFileService: MusicFileService) { }
 
   set duration(value: number) {
     this.durationMinutes = Math.floor(value / 60);
@@ -43,54 +43,13 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
     }
   }
 
-  getSongInfo(url: string) {
-    jsmediatags.Config.setDisallowedXhrHeaders([
-      'if-modified-since'
-    ]);
-
-    jsmediatags.Config.EXPERIMENTAL_avoidHeadRequests();
-    jsmediatags.read(url, {
-      onSuccess: tag => {
-        const {picture, artist, title} = tag.tags; // create reference to track art
-        if (picture) {
-          let base64String = '';
-          for (const data of picture.data) {
-            base64String += String.fromCharCode(data);
-          }
-          this.coverUrl  = 'data:' + picture.format + ';base64,' + window.btoa(base64String);
-        } else {
-          this.coverUrl = this.defaultCoverUrl;
-        }
-        if (artist) {
-          this.artist = artist;
-        }
-        if (title) {
-          this.title = title;
-        }
-      },
-      onError: error => {
-        this.coverUrl = this.defaultCoverUrl;
-      }
-    });
-  }
-
   ngOnInit(): void {
-    this.audio.src = 'https://firebasestorage.googleapis.com/v0/b/mosmuse-7b5ac.appspot.com/o/music%2F01.%20Heartbreaker.mp3?alt=media&token=b5638282-f612-4e8b-a80c-d105fb842511';
-    // this.audio.src = 'https://firebasestorage.googleapis.com/v0/b/mosmuse-7b5ac.appspot.com/o/music%2F01%20-%20Rogue%20Waves%20I~1.mp3?alt=media&token=f2bf4e18-368f-460f-a9e1-50476ec1cee6'; //'../../../assets/audio/01-Rogue Waves.mp3';
-    this.getSongInfo(this.audio.src);
-    this.audio.load();
-    this.audio.ondurationchange = () => {
-      this.duration = this.audio.duration;
-    };
-
-    this.audio.onended = () => {
-      this.stopTickTimer();
-      this.playing = false;
-    };
+    this.loadMusic('https://firebasestorage.googleapis.com/v0/b/mosmuse-7b5ac.appspot.com/o/music%2F01.%20Heartbreaker.mp3?alt=media&token=b5638282-f612-4e8b-a80c-d105fb842511');
   }
 
   ngOnDestroy(): void {
     this.stopTickTimer();
+    this.songInfoSubscription.unsubscribe();
   }
 
   onSeek(value: number) {
@@ -127,6 +86,27 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
       this.stopTickTimer();
     }
     this.playing = !this.playing;
+  }
+
+  loadMusic(url: string) {
+    this.audio.src = url;
+    this.coverUrl = this.musicFileService.defaultCoverUrl;
+    this.songInfoSubscription = this.musicFileService.musicInfoReady.subscribe(info => {
+      this.coverUrl = info.coverUrl;
+      this.artist = info.artist;
+      this.title = info.title;
+    });
+
+    this.musicFileService.getSongInfo(this.audio.src);
+    this.audio.load();
+    this.audio.ondurationchange = () => {
+      this.duration = this.audio.duration;
+    };
+
+    this.audio.onended = () => {
+      this.stopTickTimer();
+      this.playing = false;
+    };
   }
 
 }

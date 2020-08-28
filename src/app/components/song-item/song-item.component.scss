@@ -1,0 +1,91 @@
+@import "../../../assets/styles/mixins.scss";
+
+.item-container {
+  position: relative;
+  width: 12rem;
+  box-shadow: 8px 8px 10px rgba($color: #000000, $alpha: 0.5);
+  border-radius: $card-img-radius-lg;
+  transition: all 0.2s;
+
+  .item-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .item-info--labels {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+    }
+
+    .item-info--more {
+      position: absolute;
+      top: 1rem;
+      left: 10rem;
+      visibility: hidden;
+      opacity: 0;
+      transition: $transition-short;
+      z-index: 2;
+      .item-info--more--icon {
+        color: $gray-100;
+        cursor: pointer;
+      }
+      .item-info--dropdown {
+        background-color: rgba($highlighted-theme-color, .65);
+        margin: 0;
+        border: none;
+        padding: 0;
+        min-width: 5rem;
+        .item-info--dropdown_icon {
+          color: $gray-100;
+        }
+      }
+    }
+  }
+
+  .item-image-container {
+    .item-image {
+      width: 100%;
+      height: 12rem;
+      border-radius: $card-img-radius-lg;
+    }
+
+    &:after {
+      @include pseudoContent;
+      @include absolute(top 0 right 0 left 0);
+      border-top-left-radius: $card-img-radius-lg;
+      border-top-right-radius: $card-img-radius-lg;
+      height: 4rem;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.75);
+      background: linear-gradient(to bottom, rgba($black, 0.75) 0%, rgba($black, 0) 100%);
+      visibility: visible;
+      opacity: 0;
+      transition: $transition-short;
+    }
+  }
+  .item-title {
+    color: $gray-400;
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: large;
+  }
+  .item-artist {
+    color: $gray-500;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    font-size: small;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 8px 10px 15px rgba($color: #000000, $alpha: 0.5);
+    .item-image-container{
+      &:after, .item-info--more {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

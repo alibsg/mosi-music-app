@@ -1,0 +1,97 @@
+@import "../../../assets/styles/mixins.scss";
+
+.sidebar {
+  background: #222629;
+  padding: 0px;
+  min-height: 100%;
+  max-width: $sidebar-width;
+  min-width: $sidebar-width;
+  @media (max-width: $md-width) {
+    max-width: $sidebar-small-width;
+    min-width: $sidebar-small-width;
+  }
+}
+
+.side-bar-content {
+  position: fixed;
+  max-width: $sidebar-width;
+  min-width: $sidebar-width;
+  @media (max-width: $md-width) {
+    max-width: $sidebar-small-width;
+    min-width: $sidebar-small-width;
+  }
+}
+.logo {
+  max-height: 130px;
+}
+.logo > img {
+  width: 5rem;
+  height: 6rem;
+  padding: 3px;
+  border-radius: 10%;
+  @media (max-width: $md-width) {
+    width: 4rem;
+    height: 5rem;
+  }
+}
+.brand {
+  font-family: "Kaushan Script", cursive;
+  @media (max-width: $md-width) {
+    font-size: medium;
+  }
+}
+.list {
+  color: #ced4da;
+  list-style: none;
+  padding-left: 0px;  
+}
+
+.list::first-line {
+  color: #dee2e6;
+  letter-spacing: 0.3rem;
+  @media (max-width: $md-width) {
+    letter-spacing: 0.2rem;
+  }
+}
+.list > li,
+h5,
+h6 {
+  padding: 5px 0px 5px 40px;
+  @media (max-width: $md-width) {
+    padding: 5px 0px 5px 10px;
+    font-size: small;
+  }
+}
+
+.list > li {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.list > li:focus {
+  outline: none;
+}
+
+.list > li:hover:not(.active) {
+  color: white;
+  font-weight: bold;
+}
+
+.list .active {
+  background-color: rgb(141, 26, 173, 0.2);
+  border-left: 5px solid rgb(141, 26, 173);
+  color: rgb(141, 26, 173);
+  font-weight: bolder;
+  @media (max-width: $md-width) {
+    font-weight: bold;
+    border-left: 1px solid rgb(141, 26, 173);
+  }
+}
+.main-content {
+  background-color: $gray-800;
+  text-align: center;
+}
+
+.main-page-container {
+  margin: 0 $main-page-x-margin 0 $main-page-x-margin;
+}

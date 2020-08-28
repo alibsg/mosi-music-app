@@ -11,6 +11,7 @@ $header-left-margin: $sidebar-width + 2rem;
   left: $header-left-margin;
   right: 2rem;
   transition: all .4s;
+  z-index: $zIndex-header;
 
   .input-group-text {
     color: $gray-600;

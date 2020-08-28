@@ -1,0 +1,45 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <!-- side bar  -->
+    <div class="sidebar">
+      <div class="side-bar-content">
+        <div class="d-flex flex-column flex-md-row align-items-center mx-md-4 mt-4">
+          <div class="logo mr-md-3">
+            <img src="../../../assets/images/big-logo.jpg" class="img-responsive center-block" alt="Logo">
+          </div>
+          <div class="text-center text-light">
+            <h2 class="brand">mosmuse</h2>
+          </div>
+        </div>
+        <br>
+        <div class="left-navigation">
+          <ul class="list">
+            <h6 class="font-weight-normal">Admin</h6>
+            <li routerLink="./songs" routerLinkActive="active">
+              <i class="fa fa-music mr-2"></i>Songs
+            </li>
+            <li routerLink="./songupload" routerLinkActive="active">
+              <i class="fa fa-upload mr-2"></i>Upload
+            </li>
+            <li routerLink="./users" routerLinkActive="active">
+              <i class="fa fa-user-circle mr-2"></i>Users
+            </li>
+          </ul>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="col main-content p-0">
+      <div class="main-page-container text-muted text-center">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

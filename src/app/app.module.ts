@@ -22,6 +22,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FileUploadComponent } from './pages/file-upload/file-upload.component';
 import { appReducerMap } from './store/app.reducer';
 import { AuthEffects } from './pages/auth/store/auth.effects';
+import { SongItemComponent } from './components/song-item/song-item.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { SongsComponent } from './pages/admin/songs/songs.component';
+import { SongUploadComponent } from './pages/admin/song-upload/song-upload.component';
+import { UsersComponent } from './pages/admin/users/users.component';
+import { UploadItemComponent } from './components/upload-item/upload-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { AuthEffects } from './pages/auth/store/auth.effects';
     PlayerHoverDirective,
     DropdownDirective,
     HeaderComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    SongItemComponent,
+    AdminComponent,
+    SongsComponent,
+    SongUploadComponent,
+    UsersComponent,
+    UploadItemComponent
   ],
   imports: [
     BrowserModule,

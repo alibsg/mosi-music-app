@@ -1,0 +1,49 @@
+@import "../../../assets/styles/config.scss"; 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: .2rem;
+  @media (max-width: $md-width) {
+    font-size: .75rem;
+  }
+}
+
+.upload-item-container {
+  background-color: black;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  .upload-item-header {
+    background-color: $gray-900;
+    border-bottom: 1px solid $gray-600;
+    .upload-item-header--title {
+      color: $gray-500;
+    }
+    .upload-item-close {
+      color: $pink;
+    }
+  }
+  .upload-item-image {
+    margin: .5rem 0 .5rem .5rem; 
+    width: 2rem;
+    height: 2rem;
+    border-radius: .2rem;
+  }
+  .upload-item-progress-container{
+    height: .5rem;
+  }
+  .upload-item-size-container {
+    p {
+      font-size: .75rem;
+    }
+  }
+  .upload-item-controls-container {
+    background-color: $gray-900;
+  }
+}

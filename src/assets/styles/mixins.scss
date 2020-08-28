@@ -75,27 +75,6 @@
   }
 }
 
-//== Range track mixins
-@mixin track {
-  border-radius: $volume-height;
-  height: $volume-height;
-  background-color: lighten(theme-color(primary), 30%);
-}
-
-@mixin range-track {
-  &::-webkit-slider-runnable-track {
-    @include track;
-  }
-
-  &::-moz-range-track {
-    @include track;
-  }
-
-  &::-ms-track {
-    @include track;
-  }
-}
-
 //== Progress value mixin
 @mixin progress-value($color, $light: false) {
   @if $light == true {
@@ -131,4 +110,41 @@
       }
     }
   }
+}
+
+//== Position mixin
+@mixin position($position, $args: ()) {
+  $offsets: top right bottom left;
+  position: $position;
+  @each $offset in $offsets {
+      $index: index($args, $offset);
+      @if $index {
+          @if $index == length($args) {
+              #{$offset}: 0;
+          } @else {
+              $next: nth($args, $index + 1);
+              @if is-valid-length($next) {
+                  #{$offset}: $next;
+              } @else if index($offsets, $next) {
+                  #{$offset}: 0;
+              } @else {
+                  @warn "Invalid value `#{$next}` for offset `#{$offset}`.";
+              }
+          }
+      }
+  }
+}
+
+@mixin absolute($args: ()) {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args: ()) {
+  @include position(fixed, $args);
+}
+
+//== Pseudo Content
+@mixin pseudoContent() {
+  content: '';
+  display: block;
 }
