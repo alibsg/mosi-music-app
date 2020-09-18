@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MusicFileService } from 'src/app/services/music-file.service';
@@ -6,9 +6,11 @@ import { MusicFileService } from 'src/app/services/music-file.service';
 @Component({
   selector: 'app-music-player',
   templateUrl: './music-player.component.html',
-  styleUrls: ['./music-player.component.scss']
+  styleUrls: ['./music-player.component.scss'],
+  providers: [MusicFileService]
 })
 export class MusicPlayerComponent implements OnInit, OnDestroy {
+  @Output() showNowPlaying = new EventEmitter();
   playTickSubscription: Subscription;
   songInfoSubscription: Subscription;
   seekerValue = 0;
@@ -19,7 +21,7 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
   durationSeconds = 0;
   currentMinutes = 0;
   currentSeconds = 0;
-  coverUrl = '';
+  coverUrl = this.musicFileService.defaultCoverUrl;
   artist = '';
   title = '';
 
@@ -44,12 +46,13 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadMusic('https://firebasestorage.googleapis.com/v0/b/mosmuse-7b5ac.appspot.com/o/music%2F01.%20Heartbreaker.mp3?alt=media&token=b5638282-f612-4e8b-a80c-d105fb842511');
   }
 
   ngOnDestroy(): void {
     this.stopTickTimer();
-    this.songInfoSubscription.unsubscribe();
+    if (this.songInfoSubscription) {
+      this.songInfoSubscription.unsubscribe();
+    }
   }
 
   onSeek(value: number) {
@@ -107,6 +110,10 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
       this.stopTickTimer();
       this.playing = false;
     };
+  }
+
+  onNowPlaying() {
+    this.showNowPlaying.emit();
   }
 
 }

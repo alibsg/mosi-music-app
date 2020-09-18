@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/config.scss";
+.info {
+  h3, p {
+    font-family: "Roboto";
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+  h3 {
+    color: $gray-300;
+    font-size: 1.5rem;
+  }
+  p {
+    color: $gray-500;
+  }
+  
+}
+
+hr {
+  background-color: $gray-600;
+}
+
+.pagination {
+  .active {
+    a {
+      background-color: $highlighted-theme-color;
+    }
+  }
+  li{
+    &:not(.active) {
+      a {
+        &:hover {
+          color: $gray-200;
+          background-color: rgba($gray-800, .35);
+        }
+      }
+    }
+  }
+  a {
+    background-color: rgba($black, .35);
+    color: $gray-500;
+    border-color: $gray-700;
+    transition: all .3s;
+  }
+}

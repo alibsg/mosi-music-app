@@ -1,0 +1,33 @@
+<div>
+  <div class="info d-flex flex-column justify-content-start text-left">
+    <h3>Most Recent</h3>
+    <p>Listen Recent Songs</p>
+  </div>
+  <hr class="mt-2 mb-3">
+  <div class="d-flex flex-row flex-wrap">
+    <app-song-item 
+      *ngFor="let item of recentViewing[recentCurrentPage]" 
+      [songItem]="item"
+      
+    ></app-song-item>
+  </div>
+  <nav class="mt-3">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [ngClass]="{'disabled': recentCurrentPage === 0}">
+        <a class="page-link cursor-pointer" tabindex="-1" (click)="recentPrevPage()"><i class="fa fa-arrow-left"></i></a>
+      </li>
+      <li class="page-item" *ngFor="let list of recentViewing; let i = index;" [ngClass]="{'active': i === recentCurrentPage}">
+        <a class="page-link cursor-pointer" (click)="recentPageSelect(i)">{{i+1}}</a>
+      </li>
+      <li class="page-item" [ngClass]="{'disabled': recentCurrentPage === recentViewing.length - 1}">
+        <a class="page-link cursor-pointer"><i class="fa fa-arrow-right" (click)="recentNexPage()"></i></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="info d-flex flex-column justify-content-start text-left">
+    <h3>Top Rated</h3>
+    <p>Listen Top Songs</p>
+  </div>
+  <hr class="mt-2 mb-3">
+</div>

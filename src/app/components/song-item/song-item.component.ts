@@ -1,25 +1,38 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { SongItem } from './song-item.model';
+import { MusicFileService } from 'src/app/services/music-file.service';
 
 @Component({
   selector: 'app-song-item',
   templateUrl: './song-item.component.html',
-  styleUrls: ['./song-item.component.scss']
+  styleUrls: ['./song-item.component.scss'],
+  providers: [MusicFileService]
 })
-export class SongItemComponent implements OnInit {
-  @Input() rated = false;
-  @Input() favorite = false;
-  @Input() imageUrl = '';
+export class SongItemComponent implements OnInit, OnDestroy {
+  @Input() songItem: SongItem;
+  @Output() itemClicked = new EventEmitter<number>();
+  infoReadySubscription: Subscription;
+  imageUrl = this.musicFileService.defaultCoverUrl;
 
-  constructor() { }
+  constructor(private musicFileService: MusicFileService ) { }
 
   ngOnInit(): void {
-    if (!this.imageUrl) {
-      this.imageUrl = '../../assets/images/no-cover.png';
+    if (this.songItem.songUrl) {
+      this.musicFileService.getSongInfo(this.songItem.songUrl);
+      this.infoReadySubscription = this.musicFileService.musicInfoReady.subscribe( info => {
+        this.imageUrl = info.coverUrl;
+      });
     }
   }
 
+  ngOnDestroy() {
+    this.infoReadySubscription.unsubscribe();
+  }
+
   onFavorite() {
-    this.favorite = !this.favorite;
+    this.songItem.favorite = !this.songItem.favorite;
   }
 
 }

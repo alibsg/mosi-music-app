@@ -1,11 +1,21 @@
 export class Track {
-  id: string;
-  title: string;
-  albumId: string;
-  trackNumber: number;
-  lenght: number;
-  url: string;
-  date: Date;
-  user: string;
+  constructor(
+    public id: string,
+    public title: string,
+    public artist: string,
+    public genre: string,
+    public album: string,
+    public year: string,
+    public url: string,
+    public date: Date,
+    public user: string
+  ) { }
+}
+
+export class TrackData {
+  constructor(
+    private id: string,
+    private data: string
+  ) {}
 }
 

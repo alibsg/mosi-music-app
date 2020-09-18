@@ -15,16 +15,16 @@
         <div class="left-navigation">
           <ul class="list">
             <h6 class="font-weight-normal">BROWSE MUSIC</h6>
-            <li class="active"><i class="fa fa-home"></i> Home</li>
-            <li><i class="fa fa-diamond"></i> Genres</li>
-            <li><i class="fa fa-microphone"></i> Artists</li>
-            <li><i class="fa fa-music"></i> Albums</li>
+            <li routerLinkActive="active" routerLink="./home"><i class="fa fa-home"></i> Home</li>
+            <li routerLinkActive="active" routerLink="./genres"><i class="fa fa-diamond"></i> Genres</li>
+            <li routerLinkActive="active" routerLink="./artists"><i class="fa fa-microphone"></i> Artists</li>
+            <li routerLinkActive="active" routerLink="./albums"><i class="fa fa-music"></i> Albums</li>
           </ul>
           <br>
           <ul class="list">
             <h6 class="font-weight-normal">YOUR MUSIC</h6>
-            <li><i class="fa fa-heart-o"></i> Favorites</li>
-            <li><i class="fa fa-list"></i> Play Lists</li>
+            <li routerLinkActive="active" routerLink="./favorites"><i class="fa fa-heart-o"></i> Favorites</li>
+            <li routerLinkActive="active" routerLink="./playlists"><i class="fa fa-list"></i> Play Lists</li>
           </ul>
         </div>
       </div>
@@ -32,79 +32,96 @@
 
     <!-- main content -->
     <div class="col main-content p-0">
-      <app-header [shrink]="shrinkHeader" ></app-header>
+      <app-header [shrink]="shrinkHeader"></app-header>
       <div class="banner">
       </div>
       <div class="main-page-container text-muted text-center">
-        <app-song-item></app-song-item>
-        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, similique.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi enim velit assumenda temporibus quas, eaque
-          optio tenetur aut voluptas odio totam illum ab recusandae quos error. Porro totam explicabo repellendus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dignissimos blanditiis voluptates
-          aspernatur vel qui iste expedita dicta iure cupiditate quam magni labore ipsum libero eaque laudantium
-          doloribus? Assumenda eius facere atque esse iure autem, rerum eligendi? Unde explicabo quas modi molestiae
-          tenetur inventore tempore velit pariatur veniam rem excepturi, repellat eligendi voluptatibus voluptates illum
-          beatae sunt tempora dolorem dolorum facere blanditiis voluptatum quos placeat consectetur. Eos nobis est
-          obcaecati quas in illo eveniet animi incidunt vel repellendus asperiores, illum facilis temporibus ea quidem
-          quasi tenetur nam aliquam tempora consectetur minus sint quos! Dignissimos cumque ad amet corrupti odio
-          repellendus?
-        </p>
-        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, similique.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi enim velit assumenda temporibus quas, eaque
-          optio tenetur aut voluptas odio totam illum ab recusandae quos error. Porro totam explicabo repellendus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dignissimos blanditiis voluptates
-          aspernatur vel qui iste expedita dicta iure cupiditate quam magni labore ipsum libero eaque laudantium
-          doloribus? Assumenda eius facere atque esse iure autem, rerum eligendi? Unde explicabo quas modi molestiae
-          tenetur inventore tempore velit pariatur veniam rem excepturi, repellat eligendi voluptatibus voluptates illum
-          beatae sunt tempora dolorem dolorum facere blanditiis voluptatum quos placeat consectetur. Eos nobis est
-          obcaecati quas in illo eveniet animi incidunt vel repellendus asperiores, illum facilis temporibus ea quidem
-          quasi tenetur nam aliquam tempora consectetur minus sint quos! Dignissimos cumque ad amet corrupti odio
-          repellendus?
-        </p>
-        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, similique.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi enim velit assumenda temporibus quas, eaque
-          optio tenetur aut voluptas odio totam illum ab recusandae quos error. Porro totam explicabo repellendus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dignissimos blanditiis voluptates
-          aspernatur vel qui iste expedita dicta iure cupiditate quam magni labore ipsum libero eaque laudantium
-          doloribus? Assumenda eius facere atque esse iure autem, rerum eligendi? Unde explicabo quas modi molestiae
-          tenetur inventore tempore velit pariatur veniam rem excepturi, repellat eligendi voluptatibus voluptates illum
-          beatae sunt tempora dolorem dolorum facere blanditiis voluptatum quos placeat consectetur. Eos nobis est
-          obcaecati quas in illo eveniet animi incidunt vel repellendus asperiores, illum facilis temporibus ea quidem
-          quasi tenetur nam aliquam tempora consectetur minus sint quos! Dignissimos cumque ad amet corrupti odio
-          repellendus?
-        </p>
-        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, similique.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi enim velit assumenda temporibus quas, eaque
-          optio tenetur aut voluptas odio totam illum ab recusandae quos error. Porro totam explicabo repellendus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dignissimos blanditiis voluptates
-          aspernatur vel qui iste expedita dicta iure cupiditate quam magni labore ipsum libero eaque laudantium
-          doloribus? Assumenda eius facere atque esse iure autem, rerum eligendi? Unde explicabo quas modi molestiae
-          tenetur inventore tempore velit pariatur veniam rem excepturi, repellat eligendi voluptatibus voluptates illum
-          beatae sunt tempora dolorem dolorum facere blanditiis voluptatum quos placeat consectetur. Eos nobis est
-          obcaecati quas in illo eveniet animi incidunt vel repellendus asperiores, illum facilis temporibus ea quidem
-          quasi tenetur nam aliquam tempora consectetur minus sint quos! Dignissimos cumque ad amet corrupti odio
-          repellendus?
-        </p>
-        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, similique.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi enim velit assumenda temporibus quas, eaque
-          optio tenetur aut voluptas odio totam illum ab recusandae quos error. Porro totam explicabo repellendus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dignissimos blanditiis voluptates
-          aspernatur vel qui iste expedita dicta iure cupiditate quam magni labore ipsum libero eaque laudantium
-          doloribus? Assumenda eius facere atque esse iure autem, rerum eligendi? Unde explicabo quas modi molestiae
-          tenetur inventore tempore velit pariatur veniam rem excepturi, repellat eligendi voluptatibus voluptates illum
-          beatae sunt tempora dolorem dolorum facere blanditiis voluptatum quos placeat consectetur. Eos nobis est
-          obcaecati quas in illo eveniet animi incidunt vel repellendus asperiores, illum facilis temporibus ea quidem
-          quasi tenetur nam aliquam tempora consectetur minus sint quos! Dignissimos cumque ad amet corrupti odio
-          repellendus?
-        </p>
+        <router-outlet></router-outlet>
       </div>
+      
+      <div class="footer">
+        <div class="row pt-5 mx-0">
+          <div class="col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+            <a href="http://www.mostafaakbari.com/">
+              <h1 class="footer-link">www.mostafaakbari.com</h1>
+            </a>
+            <div class="d-flex flex-row justify-content-around mt-5">
+              <div
+                class="cursor-pointer btn-platform btn-platform-dark d-flex flex-row justify-content-center align-items-center">
+                <i class="fa fa-2x fa-android text-white mx-2"></i>
+                <div class="d-flex flex-column align-items-start justify-content-center py-2">
+                  <p class="text-white mb-0 font-weight-lighter">Available on</p>
+                  <p class="text-uppercase mb-0 text-white">Android</p>
+                </div>
+              </div>
+              <div
+                class="cursor-pointer btn-platform btn-platform-red d-flex flex-row justify-content-center align-items-center">
+                <i class="fa fa-2x fa-apple text-white mx-2"></i>
+                <div class="d-flex flex-column align-items-start justify-content-center py-2">
+                  <p class="text-white mb-0 font-weight-lighter">Available on</p>
+                  <p class="text-uppercase mb-0 text-white">App store</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- music player panel -->
-      <app-music-player></app-music-player>
+      <app-music-player (showNowPlaying)="onOpenNowPlaying()"></app-music-player>
+
+      <!-- now playing -->
+      <div class="now-playing-container" #nowPlayingList [ngClass]="{'show': showNowPlaying}">
+        <div class="text-center header-now-playing">
+          <p>Now Playing</p>
+        </div>
+        <div class="now-playing-list">
+          <ul class="gradient-list">
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/1.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/6.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/3.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/1.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/6.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/3.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              <div class="list-badge-container">
+                <img src="../../../assets/images/1.jpg" class="list-badge-image">
+              </div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

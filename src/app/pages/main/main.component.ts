@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -6,6 +6,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  showNowPlaying = false;
   shrinkHeader = false;
   constructor() { }
 
@@ -15,5 +16,9 @@ export class MainComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onScroll(event) {
     const scrollValue = event.target.scrollingElement.scrollTop;
     this.shrinkHeader = scrollValue > 200 ? true : false;
+  }
+
+  onOpenNowPlaying() {
+    this.showNowPlaying = !this.showNowPlaying;
   }
 }

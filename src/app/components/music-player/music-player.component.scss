@@ -3,7 +3,7 @@
 // Styling for audio player
 #audioPlayer {
   @include flexBox();
-  @include fixed(right $wrapper-padding-x bottom .5rem left $player-from-left);
+  @include fixed(right $wrapper-padding-x bottom $player-from-bottom left $player-from-left);
   align-items: center;
   background-color: adjust-color($color: $gray-800, $alpha: .5);
   border-radius: $radius-md;
@@ -31,7 +31,9 @@
 
 .player-btn-small,
 .player-btn-medium,
-.volume-btn {
+.volume-btn,
+.more-menu-btn,
+.play-list-toggle-btn {
   color: $gray-400;
   cursor: pointer;
   transition: $transition-fast;
@@ -79,4 +81,16 @@
 .volume-control {
   height: 2.5rem;
   //transform: translateX(-100);
+}
+
+.more-menu-container {
+  background-color: rgba($black, .65);
+  .dropdown-item {
+    color: $gray-500;
+    transition: all .3s;
+    &:hover {
+      color: $gray-300;
+      background-color: rgba($black, .8);
+    }
+  }
 }

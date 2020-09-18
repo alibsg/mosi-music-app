@@ -19,8 +19,11 @@ p {
   background-color: black;
   border-radius: 0.5rem;
   overflow: hidden;
+  &.upload-success {
+    background-color: #2e4b32;
+  }
   .upload-item-header {
-    background-color: $gray-900;
+    background-color: rgba($gray-900, .65);
     border-bottom: 1px solid $gray-600;
     .upload-item-header--title {
       color: $gray-500;
@@ -44,6 +47,6 @@ p {
     }
   }
   .upload-item-controls-container {
-    background-color: $gray-900;
+    background-color: rgba($gray-900, .65);
   }
 }

@@ -1,11 +1,14 @@
 @import "../../../assets/styles/mixins.scss";
 
-$start-gradient-color: rgba($highlighted-theme-color, .5);
-$end-gradient-color: adjust-color($color: $gray-800, $alpha: .5);
-
+$start-gradient-color: rgba($highlighted-theme-color, 0.5);
+$end-gradient-color: adjust-color(
+  $color: $gray-800,
+  $alpha: 0.5,
+);
 
 .banner {
-  background: linear-gradient(to bottom, $start-gradient-color, $end-gradient-color), url(../../../assets/images/neck-wide.jpg) center center no-repeat;
+  background: linear-gradient(to bottom, $start-gradient-color, $end-gradient-color),
+    url(../../../assets/images/neck-wide.jpg) center center no-repeat;
   background-size: cover;
   height: $top-banner-height;
 }
@@ -50,7 +53,7 @@ h6 {
 
 .list > li {
   cursor: pointer;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .list > li:hover:not(.active) {
   color: white;
@@ -64,6 +67,10 @@ h6 {
   font-weight: bolder;
   padding-left: 35px;
 }
+
+.list li:focus {
+  outline: none;
+}
 .main-content {
   background-color: $gray-800;
   text-align: center;
@@ -73,3 +80,139 @@ h6 {
   margin: $main-page-top-margin $main-page-x-margin 0 $main-page-x-margin;
 }
 
+.footer {
+  background: linear-gradient(to top, $start-gradient-color, $end-gradient-color),
+    url(../../../assets/images/full-copy.jpg) center center no-repeat;
+  background-size: cover;
+  height: $footer-height;
+  a {
+    text-decoration: none;
+  }
+  .footer-link {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    color: $gray-500;
+  }
+  .btn-platform {
+    min-width: 150px;
+    border-radius: $radius-md;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .btn-platform-dark {
+    background-color: black;
+  }
+
+  .btn-platform-red {
+    background-color: red;
+  }
+}
+
+.now-playing-container {
+  @include fixed(right 0 bottom $now-playing-from-bottom);
+  background-color: rgba($black, 0.65);
+  border-radius: $radius-md 5px 5px $radius-md;
+  color: $black;
+  display: none;
+  margin: 0 auto;
+  max-width: 40rem;
+  max-height: 30rem;
+  padding: 0;
+  z-index: $zIndex-now-playing;
+  overflow: hidden;
+  &.show {
+    display: block;
+    animation-name: moveup;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.24, 0.04, 0.39, 1.21);
+  }
+
+  .now-playing-list {
+    overflow-y: auto;
+    padding: 1rem;
+    height: 100%;
+    max-height: 28rem;
+    width: 100%;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      border-radius: 5px;
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.75);
+      background-color: $start-gradient-color; // #555;
+    }
+
+    ul.gradient-list {
+      list-style: none;
+      margin: 1.75rem 0;
+      padding-left: 1rem;
+      > li {
+        font-family: "Roboto";
+        cursor: pointer;
+        background: $gray-700;
+        color: $gray-500;
+        border-radius: 0 0.5rem 0.5rem 0.5rem;
+        box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.75), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.75);
+        margin-top: 1rem;
+        min-height: 3rem;
+        padding: 1rem 1rem 1rem 3rem;
+        position: relative;
+        transition: all 0.4s;
+        &:hover {
+          transform: translateX(-5px);
+        }
+        .list-badge-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, $blue 0%, $highlighted-theme-color 100%);
+          border-radius: 1rem 1rem 0 1rem;
+          box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.75), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.75);
+          width: 3rem;
+          height: 3rem;
+          position: absolute;
+          left: -1rem;
+          top: -1rem;
+          overflow: hidden;
+          .list-badge-image {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+          }
+        }
+        + li {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+
+  .header-now-playing {
+    background-color: rgba($highlighted-theme-color, .65);
+    color: white;
+    padding: .5rem 0;
+    p {
+      font-family: "Roboto";
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes moveup {
+  0% {
+    transform: translateY(20rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

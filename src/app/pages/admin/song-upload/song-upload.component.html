@@ -1,2 +1,18 @@
-<p>song-upload works!</p>
-<app-upload-item></app-upload-item>
+<input type="file" accept=".mp3, .mp4" multiple  #fileSelector style="display: none;" (change)="onGetFileNames($event.target.files)">
+<div class="btn-group-fab" role="group" aria-label="FAB Menu">
+  <div>
+    <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu" (click)="onAddFiles(fileSelector)"> 
+      <i class="fa fa-plus"></i> 
+    </button>
+  </div>
+</div>
+<!-- <div>
+  <button type="button" class="btn btn-outline-primary" (click)="onStoreGenres()">Store Genres</button>
+</div> -->
+<div class="mt-2">
+  <p class="text-center text-muted" *ngIf="fileList.length === 0">No file is selected. May be select files to start uploading them!</p>
+  <app-upload-item 
+    [file]="file"
+    (closeItem) = "onCloseItem(i)"
+    *ngFor="let file of fileList; let i=index;"></app-upload-item>
+</div>

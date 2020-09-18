@@ -13,8 +13,8 @@ export class LoginStart implements Action {
   readonly type = LOGIN_START;
 
   constructor(public payload: {
-    email: string;
-    password: string;
+    email: string,
+    password: string,
   }) {}
 }
 
@@ -24,8 +24,8 @@ export class SignupStart implements Action {
   constructor(public payload: {
     firstname: string,
     lastname: string,
-    email: string;
-    password: string;
+    email: string,
+    password: string,
   }) {}
 }
 
@@ -41,10 +41,10 @@ export class SignupSuccess implements Action {
   constructor(public payload: {
     firstname: string,
     lastname: string,
-    email: string;
-    localId: string;
-    idToken: string;
-    expirationDate: Date;
+    email: string,
+    localId: string,
+    idToken: string,
+    expirationDate: Date
   }) {}
 }
 
@@ -52,10 +52,11 @@ export class LoginSuccess implements Action {
   readonly type = LOGIN_SUCCESS;
 
   constructor(public payload: {
-    email: string;
-    localId: string;
-    idToken: string;
-    expirationDate: Date;
+    email: string,
+    localId: string,
+    idToken: string,
+    expirationDate: Date,
+    redirect: boolean,
   }) {}
 }
 

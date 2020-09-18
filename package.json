@@ -27,6 +27,7 @@
     "firebase": "^7.13.1",
     "font-awesome": "^4.7.0",
     "jsmediatags": "^3.9.3",
+    "ngx-filesize": "^2.0.16",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

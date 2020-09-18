@@ -73,6 +73,11 @@ export class AuthEffects {
   @Effect()
   loginSuccess = this.action$.pipe(
     ofType(AuthActions.LOGIN_SUCCESS),
+    tap((userData: AuthActions.LoginSuccess) => {
+      if (userData.payload.redirect) {
+        this.router.navigate(['/main/home']);
+      }
+    }),
     switchMap((userData: AuthActions.LoginSuccess) => {
       let httpParams = new HttpParams();
       httpParams = httpParams.append('orderBy', `"id"`);
@@ -99,9 +104,6 @@ export class AuthEffects {
           return of({ type: 'dummy' });
         })
       );
-    }),
-    tap(() => {
-      this.router.navigate(['/main']);
     })
   );
 
@@ -121,7 +123,7 @@ export class AuthEffects {
       );
     }),
     tap(() => {
-      this.router.navigate(['/main']);
+      this.router.navigate(['/main/home']);
     })
   );
 
@@ -155,7 +157,8 @@ export class AuthEffects {
             email: email,
             localId: id,
             idToken: _token,
-            expirationDate: new Date(_tokenExpirationDate)
+            expirationDate: new Date(_tokenExpirationDate),
+            redirect: false
           });
         }
       }
@@ -212,8 +215,8 @@ export class AuthEffects {
         email: resData.email,
         localId: resData.localId,
         idToken: resData.idToken,
-        expirationDate: expirationDate
-        // redirect: true
+        expirationDate: expirationDate,
+        redirect: true
       });
     }
   }

@@ -22,6 +22,8 @@ $yellow:    #ffcf00;
 $green:     #00c746;
 $cyan:      #26bebf;
 $teal:      #20c997;
+$white:     #fafafa;
+$black:     #1d1f20;
 
 // Small devices (landscape phones, 576px and up)
 $sm-width: 576px;
@@ -35,7 +37,6 @@ $xl-width: 1200px;
 $radius-md: 1rem;
 $radius-sm: .5rem;
 $wrapper-padding-x: 2rem !default;
-$zIndex-player: 1004;
 $transition-short: .2s all ease-in !default;
 $transition-medium: .4s all ease-in !default;
 $transition-fast: .2s all ease-in !default;
@@ -48,8 +49,10 @@ $sidebar-small-width: 5rem !default;
 // $player-cover-image-width: $player-height;
 $player-from-left: $sidebar-width + $wrapper-padding-x;
 $player-height: 4.5rem;
+$player-from-bottom: 2rem;
 $player-shadow: 0 1px 12px 2px rgba($black, .15);
 $player-progress-bar-height: .125rem;
+$zIndex-player: 1004;
 $volume-height: .125rem;
 $highlighted-theme-color: rgb(173, 32, 212);
 $slider-base-color: $highlighted-theme-color;
@@ -58,11 +61,19 @@ $slider-thumb-width: 15px;
 $slider-thumb-height: 15px;
 $slider-transition-duration: 0.4s;
 
+//Now Playing 
+$now-playing-from-bottom: $player-height + $player-from-bottom + .5rem;
+$zIndex-now-playing: 1003;
+
 //header
 $zIndex-header: 2000;
 
+//banner
 $top-banner-height: 30rem;
 $main-page-top-margin: -10rem;
 $main-page-x-margin: 2rem;
+
+//footer
+$footer-height: 20rem;
 
 $card-img-radius-lg: 1.5rem;

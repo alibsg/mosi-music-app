@@ -1,27 +1,27 @@
-<div class="item-container d-flex flex-column">
+<div class="item-container d-flex flex-column cursor-pointer">
   <div class="item-image-container">
     <div class="item-info">
       <div class="item-info--labels d-flex">
-          <span class="badge badge-pill badge-warning" *ngIf="rated">
+          <span class="badge badge-pill badge-warning" *ngIf="songItem.rated">
             <i class="fa fa-star"></i>
           </span>
-          <span class="badge badge-pill badge-danger ml-2" *ngIf="favorite">
+          <span class="badge badge-pill badge-danger ml-2" *ngIf="songItem.favorite">
             <i class="fa fa-heart"></i>
           </span>
       </div>
       <div appDropdown class="item-info--more">
         <a class="item-info--more--icon"><i class="fa fa-ellipsis-v"></i></a>
         <div class="item-info--dropdown dropdown-menu dropdown-menu-right">
-          <span class="item-info--dropdown_icon cursur-pointer ml-2" (click)="onFavorite()"><i class="fa fa-heart-o"></i></span>
-          <span class="item-info--dropdown_icon cursur-pointer ml-2"><i class="fa fa-plus-square-o"></i></span>
-          <span class="item-info--dropdown_icon cursur-pointer ml-2"><i class="fa fa-star-o"></i></span>
+          <span class="item-info--dropdown_icon cursor-pointer ml-2" (click)="onFavorite()"><i class="fa fa-heart-o"></i></span>
+          <span class="item-info--dropdown_icon cursor-pointer ml-2"><i class="fa fa-plus-square-o"></i></span>
+          <span class="item-info--dropdown_icon cursor-pointer ml-2"><i class="fa fa-star-o"></i></span>
         </div>
       </div>
     </div>
     <img [src]="imageUrl" class="item-image">
   </div>
   <div class="d-flex flex-column align-self-start mt-1 ml-2">
-      <h6 class="item-title text-left">Song Title</h6>
-      <p class="item-artist text-left">Song Artist</p>
+      <h6 class="item-title text-left">{{songItem.title}}</h6>
+      <p class="item-artist text-left">{{songItem.artist}}</p>
   </div>
 </div>
